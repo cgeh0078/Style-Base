@@ -1,0 +1,100 @@
+<%= stylesheet_link_tag 'item_detail', media: 'all' %>
+
+<% if @closet.genre == "Tops" %>
+  <section class="item-detail tops">
+    <h2>選択されたトップス:</h2>
+      <%= image_tag(@closet.image.url, alt: @closet.body, size: "300x400", class: "item-image") %>
+    
+      <h3>関連するボトムス:</h3>
+        <div class="Container">
+          <div class="Box-Container">
+            <% @associated_items.each do |bottom| %>
+              <%= image_tag(bottom.image.url, alt: bottom.body, size: "300x400", class: "item-image") %>
+            <% end %>
+          </div>
+          <div class="Arrow left">&lt;</div>
+          <div class="Arrow right">&gt;</div>
+        </div>
+  </section>
+
+<% elsif @closet.genre == "Bottoms" %>
+  <section class="item-detail tops">
+    <h3>関連するトップス:</h3>
+        <div class="Container">
+          <div class="Box-Container">
+          <% @associated_items.each do |top| %>
+            <%= image_tag(top.image.url, alt: top.body, size: "300x400") %>
+          <% end %>
+        </div> 
+          <div class="Arrow left">&lt;</div>
+          <div class="Arrow right">&gt;</div>
+      </div>
+          <h2>選択されたボトムス:</h2>
+      <%= image_tag(@closet.image.url, alt: @closet.body, size: "300x400") %>
+
+
+</section>
+
+<% else %>
+  <section class="error-message">
+    <p>選択されたアイテムのジャンルが正しくありません。</p>
+  </section>
+<% end %>
+
+
+<script>
+    const container = document.querySelector('.Container');
+    const boxContainer = document.querySelector('.Box-Container');
+    const leftArrow = document.querySelector('.Arrow.left');
+    const rightArrow = document.querySelector('.Arrow.right');
+    const scrollAmount = 300; // スクロールする量
+    const boxes = Array.from(boxContainer.children);
+
+    // ボックスコンテナの要素を複製
+    boxes.forEach(box => {
+        const clone = box.cloneNode(true);
+        boxContainer.appendChild(clone);
+    });
+
+    let currentScrollAmount = 0;
+
+    rightArrow.addEventListener('click', () => {
+        const containerWidth = container.offsetWidth;
+        const maxScrollAmount = boxContainer.scrollWidth / 2;
+
+        currentScrollAmount += scrollAmount;
+
+        if (currentScrollAmount >= maxScrollAmount) {
+            currentScrollAmount = 0;
+            boxContainer.style.transition = 'none';
+            boxContainer.style.transform = `translateX(-${currentScrollAmount}px)`;
+            setTimeout(() => {
+                boxContainer.style.transition = 'transform 0.3s ease';
+                currentScrollAmount += scrollAmount;
+                boxContainer.style.transform = `translateX(-${currentScrollAmount}px)`;
+            }, 0);
+        } else {
+            boxContainer.style.transform = `translateX(-${currentScrollAmount}px)`;
+        }
+    });
+
+    leftArrow.addEventListener('click', () => {
+        const containerWidth = container.offsetWidth;
+        const maxScrollAmount = boxContainer.scrollWidth / 2;
+
+        currentScrollAmount -= scrollAmount;
+
+        if (currentScrollAmount < 0) {
+            currentScrollAmount = maxScrollAmount - scrollAmount;
+            boxContainer.style.transition = 'none';
+            boxContainer.style.transform = `translateX(-${currentScrollAmount}px)`;
+            setTimeout(() => {
+                boxContainer.style.transition = 'transform 0.3s ease';
+                currentScrollAmount -= scrollAmount;
+                boxContainer.style.transform = `translateX(-${currentScrollAmount}px)`;
+            }, 0);
+        } else {
+            boxContainer.style.transform = `translateX(-${currentScrollAmount}px)`;
+        }
+    });
+</script>

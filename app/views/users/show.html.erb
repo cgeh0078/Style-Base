@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マイページ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- プロフィールセクション -->
+        <div class="profile-bar">
+            <%= image_tag @user.image_url, size: "80x80", class: "profile-image" if @user.image? %>
+            <div class="profile-info">
+                <h1><%= @user.name %></h1>
+                <p class="email"><%= @user.email %></p>
+                <p class="profile-text"><%= @user.profile %></p>
+                <% if current_user.id == @user.id %>
+                    <%= link_to "プロフィールを編集", edit_user_registration_path, class: "edit-profile-button" %>
+                <% end %>
+            </div>
+        </div>
+
+        <!-- クローゼットセクション -->
+        <div class="section">
+            <h2>クローゼット</h2>
+            <%= link_to "クローゼットを見る", closets_path, class: "section-button" %>
+        </div>
+
+        <!-- 通知・お知らせセクション -->
+        <div class="section">
+            <h2>通知・お知らせ</h2>
+            <p>新機能が追加されました！詳細はこちら</p>
+        </div>
+
+        <!-- フッターボタン -->
+        <div class="link-list">
+            <%= link_to "Tweet一覧に戻る", tweets_path %>
+            <%= link_to "Closetへ", closets_path %>
+        </div>
+    </div>
+</body>
+</html>

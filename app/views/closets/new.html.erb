@@ -1,0 +1,21 @@
+<!-- app/views/closets/new.html.erb -->
+<%= stylesheet_link_tag 'new_item' %>
+
+<h1>Whoiam</h1>
+<h3>新規アイテムを登録する</h3>
+<%= form_for @closet do |f| %>
+  <div class="field">
+    <%= f.label :body %>
+    <%= f.text_field :body, :size => 160 %>
+  </div>
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+  <div class="field">
+    <%= f.select :genre, [["Tops", "Tops"], ["Bottoms", "Bottoms"]], prompt: "ジャンルを選択してください"%>
+  </div>
+  <%= f.submit "登録する" %>
+<% end %>
+<%= link_to "Closet一覧に戻る", closets_path %>
+<%= link_to "Tweet一覧に戻る", tweets_path %>

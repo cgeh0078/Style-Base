@@ -1,0 +1,123 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/* グローバル設定 */
+body {
+    font-family: 'Raleway', sans-serif;
+    color: #333;
+    background-color: #f7f7f7; /* 背景を少し明るめに */
+}
+
+/* ヘッダー全体 */
+header {
+    background-color: #fff;
+    border-bottom: 2px solid #eee;
+    padding: 20px 0;
+    font-weight: bold;
+}
+
+/* ヘッダー上段 (アプリ名) */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px; /* 左右に余白を追加 */
+    background-color: #fff;
+}
+
+.header-top h1 {
+    font-family: 'Playfair Display', serif; /* エレガントなフォント */
+    color: #111;
+    font-size: 48px; /* サイズを大きくして存在感を強調 */
+    letter-spacing: 2px; /* 少し間隔を広げる */
+}
+
+/* ログイン、新規登録のリンク */
+.link ul {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* リンクの間隔を広げる */
+}
+
+.link a {
+    color: #555;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.link a:hover {
+    color: #111;
+    border-bottom: 2px solid #111; /* ホバー時に下線を表示 */
+}
+
+/* ヘッダー下段 (ナビゲーション) */
+.header-bottom {
+    background-color: #f7f7f7;
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+}
+
+.header-bottom nav {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 40px;
+}
+
+.header-bottom nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px; /* ナビゲーションリンクの間隔 */
+}
+
+.header-bottom nav ul li a {
+    color: #333;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    position: relative;
+}
+
+.header-bottom nav ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #333;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+}
+
+.header-bottom nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+    .header-top {
+        flex-direction: column;
+        padding: 10px 20px;
+    }
+
+    .header-bottom nav {
+        justify-content: center;
+        padding-right: 0;
+    }
+}

@@ -1,0 +1,103 @@
+/* ログインボックスのスタイル */
+.login-box {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login-box h2 {
+    margin-top: 0;
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  /* フォームフィールドのスタイル */
+  .field {
+    margin-bottom: 15px;
+  }
+  
+  .field label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .field input[type="email"],
+  .field input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  
+  /* チェックボックスとラベルのスタイル */
+  .field input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  
+  .field input[type="checkbox"] + label {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  /* ボタンのスタイル */
+  .actions {
+    text-align: center;
+  }
+  
+  .actions input[type="submit"] {
+    background-color: #666666;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .actions input[type="submit"]:hover {
+    background-color: #444444;
+  }
+  
+  /* リンクのスタイル */
+  .links {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  /* 分割線のスタイル */
+  .divider {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 15px 0;
+  }
+  
+  /* サインアップリンク（ボタン風） */
+  .links .button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #666666;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .links .button:hover {
+    background-color: #444444;
+    transform: scale(1.05);
+  }

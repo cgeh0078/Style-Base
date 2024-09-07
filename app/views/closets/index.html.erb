@@ -1,0 +1,29 @@
+<%= stylesheet_link_tag 'item_list' %>
+
+<h1></h1>
+<%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
+<% if current_user %>
+  <%= link_to "マイページへ", user_path(current_user.id) %>
+<% else %>
+  <%= link_to "ログインページへ", new_user_session_path %>
+<% end %>
+
+<h2>今日のコーデ何にする？</h2>
+<h3>My Closet</h3>
+<%= link_to "新規アイテム登録ページへ", new_closet_path %>
+<div class="closets-container">
+  <% @closets.each do |t| %>
+    <div class="closet">
+      <p><%= t.genre %></p>
+      <p><%= t.created_at %></p>
+
+        <%= link_to closet_path(t.id) do %>
+      <%= image_tag(t.image.url, alt: t.tops, size: "300x400") %>
+      <% end %>
+      
+      <%= link_to "編集する", edit_closet_path(t.id) %>
+      <%= button_to "削除する", closet_path(t.id), method: :delete %>
+    </div>
+  <% end %>
+</div>
+<%= link_to "コーデ一覧へ", tweets_path %>

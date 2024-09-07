@@ -1,0 +1,3 @@
+class Bottom < ApplicationRecord
+  
+end

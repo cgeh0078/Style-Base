@@ -1,0 +1,105 @@
+/* app/assets/stylesheets/item_detail.css */
+.item-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 子要素を水平に中央揃え */
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center; /* テキストも中央に揃える */
+}
+
+.item-image-container {
+    display: flex;
+    justify-content: center; /* 水平方向に中央揃え */
+    margin-bottom: 20px; /* 上下のマージンを設定 */
+}
+
+.item-image {
+    width: 100%;
+    max-width: 300px;
+    height: 400px; /* 単位を追加 */
+    object-fit: cover; 
+    display: block;
+    margin: 0 auto;
+}
+
+.scroll-container {
+    margin-top: 20px;
+    width: 100%;
+    overflow-x: auto; /* スクロール機能を追加 */
+}
+
+.related-items {
+    display: flex;
+    display: flex;
+    align-items: center; 
+    overflow-x: auto;
+    gap: 10px;
+    padding: 10px 0; /* 上下のパディング */
+    scroll-behavior: smooth;
+    white-space: nowrap; /* 横並びにする */
+}
+
+.related-items img {
+    flex: 0 0 auto;
+    width: 300px; /* 画像の幅 */
+    height: 400px;
+    max-width: none; /* 最大幅の制約を解除 */
+}
+
+.error-message {
+    color: red;
+    font-size: 1.2em;
+    text-align: center;
+    padding: 20px;
+}
+
+.box {
+    /* 子要素のタイトルを aboslute 配置するために必要 */
+    position: relative;
+}
+
+.box .box_left {
+    position: absolute;
+    left: 0;
+}
+
+.box .box_right {
+    position: absolute;
+    right: 0;
+}
+
+    .Container {
+        position: relative;
+        overflow: hidden;
+        width: 900px; /* コンテナの幅に応じて調整 */
+    }
+
+    .Box-Container {
+        display: flex;
+        transition: transform 0.3s ease;
+    }
+
+    .Box-Container > div {
+        min-width: 300px; /* 各ボックスの幅に応じて調整 */
+        height: 400px; /* 各ボックスの高さに応じて調整 */
+        margin-right: 10px; /* ボックス間の間隔を調整 */
+    }
+
+    .Arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        font-size: 24px;
+        user-select: none;
+    }
+
+    .Arrow.left {
+        left: 10px;
+    }
+
+    .Arrow.right {
+        right: 10px;
+    }

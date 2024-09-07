@@ -1,0 +1,110 @@
+/* グローバルスタイル */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* プロフィールバー */
+.profile-bar {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.profile-image {
+  border-radius: 50%;
+  margin-right: 20px;
+  border: 2px solid #333;
+}
+
+.profile-info h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  margin: 0;
+  color: #000;
+}
+
+.profile-info .email, .profile-text {
+  margin: 5px 0;
+  color: #666;
+}
+
+.edit-profile-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.edit-profile-button:hover {
+  background-color: #555;
+}
+
+/* 各セクション */
+.section {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.section h2 {
+  font-size: 24px;
+  color: #000;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 10px;
+}
+
+.section-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.section-button:hover {
+  background-color: #555;
+}
+
+.section p {
+  color: #666;
+}
+
+/* リンクのスタイル */
+.link-list {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.link-list a {
+  margin-right: 20px;
+  color: #333;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.link-list a:hover {
+  color: #555;
+}

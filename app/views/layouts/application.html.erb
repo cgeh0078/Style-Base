@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>トップページ</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <header>
+      <div class="header-top">
+        <h1>Style Base</h1>
+        <div class="link">
+          <ul>
+            <li><%= link_to "ログイン", closets_path %></li>
+            <li><%= link_to "新規登録", new_user_registration_path %></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="header-bottom">
+        <nav>
+          <ul>
+            <li><%= link_to "クローゼット", closets_path %></li>
+            <li><%= link_to "コーデ登録",new_tweet_path %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <%= yield %>
+    </main>
+    </main>
+    <footer>
+      <p>Copyright © Style Base2024.</p>
+    </footer>
+  </body>
+</html>
