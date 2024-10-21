@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  get 'color_diagnoses/new'
+  get 'color_diagnoses/create'
+  get 'color_diagnoses/show'
   devise_for :users  
   resources :users, only: [:show]
+  get 'mypage', to: 'users#show' # マイページへのルート
 
   get 'hello/index' => 'hello#index'
   root 'hello#index'
@@ -14,5 +18,9 @@ Rails.application.routes.draw do
   resources :tweets  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  get 'suggestions1' => 'suggestions1#index'
+  resources :fashion_profiles
+
+  resources :body_diagnoses, only: [:new, :create, :show, :index]
+
+  resources :color_diagnoses, only: [:new, :create, :show, :index]
 end

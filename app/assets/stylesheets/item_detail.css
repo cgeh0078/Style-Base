@@ -1,105 +1,174 @@
-/* app/assets/stylesheets/item_detail.css */
+/* リンクボタンスタイル */
+.link-list {
+    list-style: none;
+    padding: 0;
+    margin: 40px 0;
+    display: flex; /* フレックスボックスを使用 */
+    flex-direction: row; /* ボタンを横並びに */
+    gap: 20px; /* ボタンの間に適度な余白を追加 */
+    justify-content: center; /* ボタンを中央揃えに */
+}
+
+.link-list li {
+    margin: 0;
+}
+
+.link-list a {
+    display: inline-block;
+    padding: 15px 30px;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333; /* 落ち着いた濃いグレー */
+    background-color: #e0e0e0; /* 柔らかいグレー */
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 立体感を出す */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.link-list a:hover {
+    background-color: #ccc; /* ホバー時には少し濃いグレー */
+    transform: translateY(-2px); /* 少し浮かせる効果 */
+}
+
+.link-list a:active {
+    background-color: #bbb; /* クリック時にはさらに濃く */
+    transform: translateY(0); /* クリック時に戻る */
+}
+/* アイテム詳細セクション */
 .item-detail {
+    max-width: 930px;
+    margin: 40px auto; /* ヘッダーとフッターとの間の余白を広げる */
+    padding: 30px;
+    background: linear-gradient(135deg, #ffffff, #f9f9f9);
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+
+/* 選択されたアイテム（上下の画像が連動して動くように変更） */
+.selected-item {
     display: flex;
-    flex-direction: column;
-    align-items: center; /* 子要素を水平に中央揃え */
+    flex-direction: column; /* 画像を上下に並べる */
+    justify-content: flex-start; /* 上に揃える */
+    align-items: center;
+    margin: 20px auto;
+    position: relative; /* 動的に位置を調整 */
+}
+
+/* 各画像のスタイル */
+.selected-item img {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     max-width: 100%;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center; /* テキストも中央に揃える */
+    max-height: 400px;
+    margin-bottom: 20px; /* 画像同士の間隔を適度に設定 */
+    transition: transform 0.3s ease;
 }
 
-.item-image-container {
-    display: flex;
-    justify-content: center; /* 水平方向に中央揃え */
-    margin-bottom: 20px; /* 上下のマージンを設定 */
+.selected-item img:hover {
+    transform: scale(1.05); /* ホバーで少し拡大 */
 }
 
-.item-image {
-    width: 100%;
-    max-width: 300px;
-    height: 400px; /* 単位を追加 */
-    object-fit: cover; 
-    display: block;
-    margin: 0 auto;
-}
-
-.scroll-container {
-    margin-top: 20px;
-    width: 100%;
-    overflow-x: auto; /* スクロール機能を追加 */
-}
-
+/* 関連アイテムセクション */
 .related-items {
-    display: flex;
-    display: flex;
-    align-items: center; 
-    overflow-x: auto;
-    gap: 10px;
-    padding: 10px 0; /* 上下のパディング */
-    scroll-behavior: smooth;
-    white-space: nowrap; /* 横並びにする */
+    position: relative;
+    margin: 30px 0;
+    padding: 10px 0;
 }
 
-.related-items img {
-    flex: 0 0 auto;
-    width: 300px; /* 画像の幅 */
-    height: 400px;
-    max-width: none; /* 最大幅の制約を解除 */
+.related-items h3 {
+    font-family: 'Playfair Display', serif;
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 22px;
 }
 
+/* スクロールコンテナ */
+.CContainer {
+    overflow: auto;
+    white-space: nowrap;
+    position: relative;
+    margin: 10px 0; /* 上下のマージン調整 */
+    padding: 0 10px; /* 左右のパディング調整 */
+}
+
+.Box-Container {
+    display: flex;
+    gap: 5px; /* アイテム間のスペース */
+    transition: transform 0.3s ease;
+    align-items: center;
+    margin: 0 auto; /* コンテナを中央に配置 */
+}
+
+/* 各アイテム */
+.Box-Container img {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 270px;
+    max-height: 360px;
+    transition: transform 0.3s ease;
+}
+
+.Box-Container img:hover {
+    transform: scale(1.05); /* 少し拡大 */
+}
+
+/* 矢印ボタン */
+.Arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #f8f8f8; /* 明るい背景 */
+    border: 2px solid #aaa; /* グレーのボーダー */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.Arrow.left {
+    left: 10px;
+}
+
+.Arrow.right {
+    right: 10px;
+}
+
+.Arrow:hover {
+    background-color: #ddd; /* ホバー時に少し濃く */
+}
+
+/* エラーメッセージ */
 .error-message {
-    color: red;
-    font-size: 1.2em;
     text-align: center;
     padding: 20px;
+    background-color: #ffe6e6;
+    border: 1px solid #ffcccc;
+    border-radius: 8px;
+    color: #d9534f;
+    font-size: 18px;
 }
 
-.box {
-    /* 子要素のタイトルを aboslute 配置するために必要 */
-    position: relative;
+/* リンクのスタイル */
+a {
+    color: #444;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
-.box .box_left {
-    position: absolute;
-    left: 0;
+a:hover {
+    color: #959595;
 }
-
-.box .box_right {
-    position: absolute;
-    right: 0;
-}
-
-    .Container {
-        position: relative;
-        overflow: hidden;
-        width: 900px; /* コンテナの幅に応じて調整 */
-    }
-
-    .Box-Container {
-        display: flex;
-        transition: transform 0.3s ease;
-    }
-
-    .Box-Container > div {
-        min-width: 300px; /* 各ボックスの幅に応じて調整 */
-        height: 400px; /* 各ボックスの高さに応じて調整 */
-        margin-right: 10px; /* ボックス間の間隔を調整 */
-    }
-
-    .Arrow {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        cursor: pointer;
-        font-size: 24px;
-        user-select: none;
-    }
-
-    .Arrow.left {
-        left: 10px;
-    }
-
-    .Arrow.right {
-        right: 10px;
-    }

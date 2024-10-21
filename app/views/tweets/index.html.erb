@@ -1,46 +1,37 @@
-<%= stylesheet_link_tag 'tweet_list', media: 'all' %>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code一覧</title>
+  
+  <%= stylesheet_link_tag 'tweet_list', media: 'all' %>
 
-<h1>Whoiam</h1>
-<%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
-<% if user_signed_in? %>
-  <%= link_to "マイページへ", user_path(current_user.id) %>
-<% end %>
-<%= link_to "Closet へ", closets_path %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <h2>Code list</h2>
+    <%= link_to "新規投稿ページへ", new_tweet_path, class: 'button-link' %>
+  <main>
+    <div class="tweets-container">
+      <% @tweets.each do |t| %>
+        <div class="tweet">
+          <%= link_to t.user.name, user_path(t.user.id), class: 'user-name' %>
+          <p class="post-date">投稿日時: <%= t.created_at %></p>
 
-
-<h3>Tweet一覧</h3>
-<%= link_to "新規投稿ページへ", new_tweet_path %>
-
-<div class="tweets-container">
-    <% @tweets.each do |t| %>
-    <%= link_to t.user.name, user_path(t.user.id) %>
-    <%= t.user.email %>
-
-    <%= image_tag t.user.image_url, size: "250x200" if t.user.image? %>
-
-     <div class="tweet">
-        <%= t.user.email %>
-        <%= image_tag t.image_url, size: "250x200" if t.image? %>
-        <%= t.body %>
-        <%= t.created_at %>
-        <%= link_to "詳細へ", tweet_path(t.id) %>
-        <%= link_to "編集する", edit_tweet_path(t.id) %>
-        <%= button_to "削除する", tweet_path(t.id), method: :delete %>
-     </div>
-    <% end %>
-    
-    <%= form_tag({controller:"tweets",action:"index"}, method: :get) do %>
-      <% Tag.all.each do |t| %>
-        <li><%= check_box :tag_ids, t.name %><%= t.name %></li>
+          <%= link_to tweet_path(t.id) do %>
+            <%= image_tag(t.image.url, alt: t.body.present? ? t.body : "No image description", class: "tweet-image") %>
+          <% end %>
+          
+          <div class="tweet-actions">
+            <%= link_to "詳細", tweet_path(t.id), class: 'action-link' %>
+            <%= link_to "編集", edit_tweet_path(t.id), class: 'action-link' %>
+            <%= link_to "削除", tweet_path(t.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'action-link' %>
+          </div>
+        </div>
       <% end %>
-    <%= submit_tag '検索' %>
-    <% end %>
+    </div>
+  </main>
 
-    <%= form_tag({controller:"tweets",action:"index"}, method: :get) do %>
-      <%= text_field_tag :tag %>
-      <%= submit_tag 'タグを追加' %>
-    <% end %>
-
-    
-
-</div>
+</body>
+</html>

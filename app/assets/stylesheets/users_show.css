@@ -1,16 +1,48 @@
 /* グローバルスタイル */
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #f9f9f9;
+.mypage_body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: #f8f8f8; /* 少し柔らかい背景色 */
   color: #333;
   margin: 0;
   padding: 0;
+  line-height: 1.6; /* 読みやすさのために行間を広げる */
+  overflow-y: auto;
 }
 
-.container {
+.mypage_container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 40px 20px; /* 余白を多めにして、余裕のあるデザイン */
+}
+
+/* タイポグラフィの調整 */
+.profile-info h1, .section h2 {
+  font-family: 'Playfair Display', serif; /* 上品でエレガントな印象を強調 */
+  letter-spacing: 1px; /* 文字間を広げて洗練された印象に */
+  font-size: 26px; /* サイズを調整 */
+  margin-bottom: 20px; /* 見出しの余白を大きめに */
+}
+
+.mypage_section p {
+  font-size: 16px; /* 読みやすいサイズ */
+  color: #666; /* 柔らかい色合い */
+}
+
+/* ボタンのスタイル */
+.edit-profile-button, .section-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #444;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.edit-profile-button:hover, .section-button:hover {
+  background-color: #666; /* subtle な色変化 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* シャドウで立体感を出す */
 }
 
 /* プロフィールバー */
@@ -18,93 +50,132 @@ body {
   display: flex;
   align-items: center;
   background-color: #fff;
-  padding: 20px;
+  padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px; /* 余白を広げて余裕を感じさせる */
 }
 
 .profile-image {
   border-radius: 50%;
   margin-right: 20px;
-  border: 2px solid #333;
+  border: 2px solid #ddd; /* ボーダーを柔らかい色に */
+  width: 100px;
+  height: 100px; /* 画像の大きさを調整 */
 }
 
 .profile-info h1 {
-  font-family: 'Playfair Display', serif;
   font-size: 28px;
   margin: 0;
-  color: #000;
+  color: #222;
 }
 
 .profile-info .email, .profile-text {
-  margin: 5px 0;
-  color: #666;
-}
-
-.edit-profile-button {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 8px 16px;
-  background-color: #333;
-  color: #fff;
-  border-radius: 8px;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
-}
-
-.edit-profile-button:hover {
-  background-color: #555;
+  margin: 10px 0;
+  color: #555;
 }
 
 /* 各セクション */
 .section {
   background-color: #fff;
-  padding: 20px;
-  margin-bottom: 20px;
+  padding: 30px;
+  margin-bottom: 30px;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* 柔らかい影で高級感 */
 }
 
 .section h2 {
-  font-size: 24px;
-  color: #000;
-  font-family: 'Playfair Display', serif;
-  margin-bottom: 10px;
+  font-family: 'Playfair Display', serif; /* h2のフォントをPlayfair Displayに変更 */
+  font-weight: 700; /* h2の太さを指定（通常の太さ） */
+  color: #333; /* お好みの色を指定 */
 }
 
-.section-button {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #333;
-  color: #fff;
-  border-radius: 8px;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
-}
-
-.section-button:hover {
-  background-color: #555;
+.section h3{
+  font-family: 'Poppins', sans-serif; /* h3のフォントをPoppinsに変更 */
+  font-weight: 300; /* フォントを細く設定 */
+  color: #555; /* お好みの色を指定 */
 }
 
 .section p {
   color: #666;
 }
 
-/* リンクのスタイル */
+/* リンクリスト */
 .link-list {
   text-align: center;
-  margin-top: 30px;
+  margin-top: 40px;
 }
 
 .link-list a {
   margin-right: 20px;
-  color: #333;
+  color: #444;
   font-weight: 500;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .link-list a:hover {
-  color: #555;
+  color: #666;
+}
+
+/* ファッション画像を横並びに表示 */
+.fashion-images {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px; /* ギャップを広げてゆったり感を演出 */
+}
+
+.fashion-image {
+  width: calc(33.333% - 20px); /* 横幅を3等分 */
+  height: 400px;
+  object-fit: cover;
+  border-radius: 12px; /* 角をもう少し丸く */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* 画像にも軽い影 */
+}
+
+/* カラー診断の画像スタイル */
+.color-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+/* ホバー時の subtle なエフェクト */
+.edit-profile-button:hover, .section-button:hover, .fashion-image:hover, .color-image:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1); /* ホバー時に少し影を濃くする */
+}
+
+/* 骨格診断やパーソナルカラー診断の画像 */
+.diagnosis-images img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+/* 診断結果セクション */
+.diagnosis-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* セクション間の間隔 */
+}
+
+.diagnosis-card {
+  background-color: #fff;
+  border: 2px solid #e0e0e0; /* カードのボーダー */
+  border-radius: 12px; /* 角を丸く */
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 軽い影で立体感を出す */
+}
+
+.diagnosis-card h2 {
+  font-size: 22px;
+  color: #222;
+  margin-top: 0;
+}
+
+.diagnosis-card p {
+  color: #666;
 }

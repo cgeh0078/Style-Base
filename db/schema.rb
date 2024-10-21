@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_08_28_153207) do
+ActiveRecord::Schema.define(version: 2024_09_10_130508) do
+
+  create_table "body_diagnoses", force: :cascade do |t|
+    t.string "category"
+    t.text "result"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "shoulder_line"
+    t.string "waist_line"
+    t.string "hip_line"
+    t.string "leg_length"
+    t.string "body_type"
+    t.integer "user_id"
+  end
 
   create_table "bottoms", force: :cascade do |t|
     t.string "name"
@@ -36,6 +49,34 @@ ActiveRecord::Schema.define(version: 2024_08_28_153207) do
     t.string "tops"
     t.string "genre"
     t.string "bottoms"
+  end
+
+  create_table "color_diagnoses", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "result"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "skin_tone"
+    t.string "eye_color"
+    t.string "hair_color"
+    t.string "sunburn_reaction"
+    t.string "color_preference"
+    t.string "accessory_color"
+    t.string "clothing_color"
+    t.index ["user_id"], name: "index_color_diagnoses_on_user_id"
+  end
+
+  create_table "fashion_profiles", force: :cascade do |t|
+    t.string "question"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "question1"
+    t.string "question2"
+    t.string "question3"
+    t.string "question4"
+    t.string "question5"
+    t.string "question6"
+    t.integer "user_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -85,6 +126,7 @@ ActiveRecord::Schema.define(version: 2024_08_28_153207) do
 
   add_foreign_key "bottoms_tops", "bottoms"
   add_foreign_key "bottoms_tops", "tops"
+  add_foreign_key "color_diagnoses", "users"
   add_foreign_key "tweet_tag_relations", "tags"
   add_foreign_key "tweet_tag_relations", "tweets"
 end

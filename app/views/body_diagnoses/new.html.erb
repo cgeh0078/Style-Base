@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>アプリケーション</title>
+  
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <% if current_page?(color_diagnoses_path) %>
+    <%= stylesheet_link_tag 'color_diagnoses_new', media: 'all' %>
+  <% end %>
+
+
+<body class="color-diagnosis-page">
+    <header class ="diagnosis">
+    <h1 class="diagnosis">骨格診断</h1>
+  </header>
+
+  <main>
+    <%= form_with model: @body_diagnosis, local: true do |form| %>
+      <fieldset>
+        <legend>肩のラインはどのように感じますか？</legend>
+        <%= form.radio_button :shoulder_line, "A" %>
+        <%= form.label :shoulder_line_A, "丸みがあり、柔らかい印象" %><br>
+        <%= form.radio_button :shoulder_line, "B" %>
+        <%= form.label :shoulder_line_B, "肩幅が広く、肩のラインがはっきりしている" %><br>
+        <%= form.radio_button :shoulder_line, "C" %>
+        <%= form.label :shoulder_line_C, "肩幅が広く、骨が目立つ" %><br>
+      </fieldset>
+
+      <fieldset>
+        <legend>ウエストのラインはどのように感じますか？</legend>
+        <%= form.radio_button :waist_line, "A" %>
+        <%= form.label :waist_line_A, "はっきりしている" %><br>
+        <%= form.radio_button :waist_line, "B" %>
+        <%= form.label :waist_line_B, "普通" %><br>
+        <%= form.radio_button :waist_line, "C" %>
+        <%= form.label :waist_line_C, "目立たない" %><br>
+      </fieldset>
+
+      <fieldset>
+        <legend>ヒップのラインはどのように感じますか？</legend>
+        <%= form.radio_button :hip_line, "A" %>
+        <%= form.label :hip_line_A, "丸みがある" %><br>
+        <%= form.radio_button :hip_line, "B" %>
+        <%= form.label :hip_line_B, "バランスが取れている" %><br>
+        <%= form.radio_button :hip_line, "C" %>
+        <%= form.label :hip_line_C, "骨っぽさが目立つ" %><br>
+      </fieldset>
+
+      <fieldset>
+        <legend>脚の長さはどのように感じますか？</legend>
+        <%= form.radio_button :leg_length, "A" %>
+        <%= form.label :leg_length_A, "短い" %><br>
+        <%= form.radio_button :leg_length, "B" %>
+        <%= form.label :leg_length_B, "普通" %><br>
+        <%= form.radio_button :leg_length, "C" %>
+        <%= form.label :leg_length_C, "長い" %><br>
+      </fieldset>
+
+      <%= form.submit "診断する"%>
+    <% end %>
+
+    <% if @body_diagnosis.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@body_diagnosis.errors.count, "error") %> が発生しました:</h2>
+    <ul>
+      <% @body_diagnosis.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+  </main>
+</body>
+</html>

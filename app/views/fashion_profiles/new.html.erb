@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>アプリケーション</title>
+
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+
+  <% if current_page?(color_diagnoses_new_path) %>
+    <%= stylesheet_link_tag 'color_diagnoses_new', media: 'all' %>
+  <% end %>
+
+  <%= csrf_meta_tags %>
+</head>
+<body class="color-diagnosis-page">
+
+  <header class="diagnosis">"
+    <h1 class="diagnosis">ファッション診断</h1>
+  </header>
+
+  <main>
+    <%= form_for @fashion_profile do |f| %>
+      <!-- Question 1 -->
+      <fieldset>
+        <legend>1. あなたの普段の服装スタイルはどのようなものですか？</legend>
+        <%= f.radio_button :question1, "A" %> <%= f.label :question1_A, "シンプルで快適なカジュアルスタイル" %><br>
+        <%= f.radio_button :question1, "B" %> <%= f.label :question1_B, "ストリートファッションでトレンドを意識したスタイル" %><br>
+        <%= f.radio_button :question1, "C" %> <%= f.label :question1_C, "洗練された韓国系ファッションスタイル" %><br>
+        <%= f.radio_button :question1, "D" %> <%= f.label :question1_D, "綺麗めで洗練されたスタイル" %><br>
+        <%= f.radio_button :question1, "E" %> <%= f.label :question1_E, "ガーリーでフェミニンなスタイル" %><br>
+        <%= f.radio_button :question1, "F" %> <%= f.label :question1_F, "スポーツウェアとカジュアルを組み合わせたスタイル" %><br>
+        <%= f.radio_button :question1, "G" %> <%= f.label :question1_G, "ヴィンテージ感のあるレトロスタイル" %><br>
+      </fieldset>
+
+      <!-- Question 2 -->
+      <fieldset>
+        <legend>2. あなたが最も重視するファッションアイテムは何ですか？</legend>
+        <%= f.radio_button :question2, "A" %> <%= f.label :question2_A, "Tシャツやパーカー" %><br>
+        <%= f.radio_button :question2, "B" %> <%= f.label :question2_B, "ジャケットやブルゾン" %><br>
+        <%= f.radio_button :question2, "C" %> <%= f.label :question2_C, "スカートやドレス" %><br>
+        <%= f.radio_button :question2, "D" %> <%= f.label :question2_D, "スーツやシャツ" %><br>
+      </fieldset>
+
+      <!-- Question 3 -->
+      <fieldset>
+        <legend>3. どのようなカラーやパターンが好きですか？</legend>
+        <%= f.radio_button :question3, "A" %> <%= f.label :question3_A, "ベーシックな単色" %><br>
+        <%= f.radio_button :question3, "B" %> <%= f.label :question3_B, "大胆な柄やグラフィック" %><br>
+        <%= f.radio_button :question3, "C" %> <%= f.label :question3_C, "ミニマルなデザインで控えめな色" %><br>
+        <%= f.radio_button :question3, "D" %> <%= f.label :question3_D, "トレンドを意識したカラフルな配色" %><br>
+        <%= f.radio_button :question3, "E" %> <%= f.label :question3_E, "ビビッドカラー" %><br>
+        <%= f.radio_button :question3, "F" %> <%= f.label :question3_F, "モノトーン" %><br>
+        <%= f.radio_button :question3, "G" %> <%= f.label :question3_G, "パステルカラー" %><br>
+        <%= f.radio_button :question3, "H" %> <%= f.label :question3_H, "ニュートラルカラー" %><br>
+      </fieldset>
+
+      <!-- Question 4 -->
+      <fieldset>
+        <legend>4. アクセサリーの使い方についてどう思いますか？</legend>
+        <%= f.radio_button :question4, "A" %> <%= f.label :question4_A, "シンプルで控えめ" %><br>
+        <%= f.radio_button :question4, "B" %> <%= f.label :question4_B, "目立つアイテムやトレンドアイテム" %><br>
+        <%= f.radio_button :question4, "C" %> <%= f.label :question4_C, "コーディネートに合わせた選び方" %><br>
+        <%= f.radio_button :question4, "D" %> <%= f.label :question4_D, "アクセサリーはあまり使わない" %><br>
+        <%= f.radio_button :question4, "E" %> <%= f.label :question4_E, "その日の気分で変える" %><br>
+        <%= f.radio_button :question4, "F" %> <%= f.label :question4_F, "ファッションに合わせて使う" %><br>
+        <%= f.radio_button :question4, "G" %> <%= f.label :question4_G, "特定のシーズンで選ぶ" %><br>
+        <%= f.radio_button :question4, "H" %> <%= f.label :question4_H, "多めに使う" %><br>
+      </fieldset>
+
+      <!-- Question 5 -->
+      <fieldset>
+        <legend>5. あなたがファッションに求める最も重要な要素は何ですか？</legend>
+        <%= f.radio_button :question5, "A" %> <%= f.label :question5_A, "快適さ" %><br>
+        <%= f.radio_button :question5, "B" %> <%= f.label :question5_B, "トレンド性" %><br>
+        <%= f.radio_button :question5, "C" %> <%= f.label :question5_C, "独自性" %><br>
+        <%= f.radio_button :question5, "D" %> <%= f.label :question5_D, "高級感やエレガンス" %><br>
+        <%= f.radio_button :question5, "E" %> <%= f.label :question5_E, "機能性" %><br>
+        <%= f.radio_button :question5, "F" %> <%= f.label :question5_F, "個性の表現" %><br>
+        <%= f.radio_button :question5, "G" %> <%= f.label :question5_G, "流行性" %><br>
+      </fieldset>
+
+      <!-- Submit button -->
+      <%= f.submit "診断を送信する", class: "btn btn-primary" %>
+    <% end %>
+  </main>
+</body>
+</html>

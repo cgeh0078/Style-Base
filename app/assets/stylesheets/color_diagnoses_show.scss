@@ -1,0 +1,92 @@
+// Place all the styles related to the ColorDiagnoses controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+/* 全体のスタイル */
+.color-diagnosis-page {
+    font-family: 'Helvetica Neue', Arial; /* よりモダンなフォントファミリー */
+    background-color: #f4f4f4; /* 明るく優しい背景色 */
+    color: #444; /* テキストの色 */
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* コンテナ */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* メインのタイトル */
+  .result-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.0em; /* やや小さめのサイズ */
+    font-weight: 600; /* ボールド感を調整 */
+    text-align: center;
+    margin-bottom: 20px;
+    color: #666; /* タイトルの色を少し濃い目に */
+  }
+  
+  /* 結果テキスト */
+  .result-text {
+    font-size: 1.4em; /* 大きめで読みやすい */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .result-color {
+    font-weight: 700; /* 強調のために太字 */
+    color: #444; /* 診断結果を目立たせる */
+    font-family: 'Roboto', sans-serif; /* モダンなフォント */
+  }
+  
+  /* 画像のスタイル */
+  .color-image {
+    display: block;
+    max-width: 80%;
+    height: auto;
+    margin: 20px auto;
+  }
+  
+  /* 詳細セクション */
+  .details {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #fff; /* 背景色を白に */
+    border-radius: 8px; /* 角を丸くする */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 軽いシャドウを付ける */
+  }
+  
+  /* 詳細タイトル */
+  .details-title {
+    font-size: 1.6em; /* 適度なサイズ */
+    margin-bottom: 15px;
+    font-weight: 600; /* 少しボールド */
+    color: #333; /* 詳細タイトルの色 */
+  }
+  
+  /* 詳細テキスト */
+  .details-text {
+    font-size: 1.2em; /* 適度なサイズ */
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #666; /* 読みやすいテキストカラー */
+  }
+  
+  /* リトライリンク */
+  .retry-link {
+    display: block;
+    text-align: center;
+    font-size: 1.2em;
+    color: #2A496B; /* リンクの色 */
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 30px;
+    background-color: #fff; /* 背景色を白に */
+  }
+  
+  .retry-link:hover {
+    background-color: #2A496B; /* ホバー時の背景色 */
+    color: #fff; /* ホバー時のテキスト色 */
+  }

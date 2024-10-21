@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>パーソナルカラー診断結果</title>
+  <link rel="stylesheet" href="styles/color_diagnoses_show.scss">
+</head>
+<body class="color-diagnosis-page">
+  <main>
+    <div class="container">
+      <div class="result-info">
+        <p class="result-text">あなたのパーソナルカラーは <span class="result-color"><%= @color_diagnosis.result %></span></p>
+
+        <% if @color_diagnosis.result == 'イエベ春' %>
+          <%= image_tag 'spring.jpeg', alt: 'スプリングのカラーパレット', class: 'color-image' %>
+        <% elsif @color_diagnosis.result == 'ブルベ夏' %>
+          <%= image_tag 'summer.jpeg', alt: 'サマーのカラーパレット', class: 'color-image' %>
+        <% elsif @color_diagnosis.result == 'イエベ秋' %>
+          <%= image_tag 'autumn.jpeg', alt: 'オータムのカラーパレット', class: 'color-image' %>
+        <% elsif @color_diagnosis.result == 'ブルベ冬' %>
+          <%= image_tag 'winter.jpeg', alt: 'ウィンターのカラーパレット', class: 'color-image' %>
+        <% else %>
+          <p>パーソナルカラーの結果が見つかりませんでした。</p>
+        <% end %>
+
+        <div class="details">
+          <h2 class="details-title">特徴</h2>
+          <p class="details-text"><%= @color_info[:description] %></p>
+
+          <h2 class="details-title">似合う服装のアドバイス</h2>
+          <p class="details-text"><%= @color_info[:fashion_advice] %></p>
+        </div>
+
+        <a href="<%= new_color_diagnosis_path %>" class="retry-link">診断を再試行する</a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

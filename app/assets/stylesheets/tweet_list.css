@@ -1,4 +1,122 @@
+/* 全体のスタイル */
+body {
+  font-family: 'Noto Sans JP', sans-serif; /* フォントを統一 */
+  background-color: #f7f7f7; /* 明るいグレー */
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #f5f5f5; /* 白色 */
+  padding: 15px; /* パディングを調整 */
+  text-align: center;
+  border-bottom: 1px solid #ddd; /* 薄いグレーのボーダー */
+}
+
+header h1 {
+  margin: 0;
+  color: #333;
+}
+
+button, .button-link {
+  background-color: #f5f5f5;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: block; /* リンクをブロック表示 */
+  text-align: center; /* 中央揃え */
+  margin: 10px 0; /* 上下に余白 */
+}
+
+button:hover, .button-link:hover {
+  background-color: #e0e0e0;
+  color: #000;
+}
+
+new_tweet-link {
+  background-color: #f5f5f5;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: block;
+  text-align: center;
+  margin: 10px 0;
+}
+/* shared.css などの共通CSSファイルに追加 */
+main {
+  padding: 15px; /* パディングを少し減らす */
+}
+
 .tweets-container {
-    display: flex;
-    flex-wrap: wrap;
-  }
+  display: flex;
+  flex-wrap: wrap; /* 複数行に自動で折り返す */
+  overflow-y: auto; /* 縦スクロールを許可 */
+  gap: 20px; /* アイテム間の間隔を調整 */
+  justify-content: flex-start; 
+}
+
+.tweet {
+  background-color: #ffffff; /* 白色 */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  box-sizing: border-box;
+  width: calc(20% - 16px); /* 5列に分割し、間隔を考慮 */
+  display: flex;
+  flex-direction: column;
+}
+
+.tweet-image {
+  width: 100%; /* 幅をコンテナにフィット */
+  height: 200px; /* 高さを固定 */
+  border-radius: 8px;
+  object-fit: cover; /* 画像をコンテナにフィット */
+}
+.user-name {
+  font-weight: bold;
+  color: #2A496B; /* リンク色を青に統一 */
+  text-decoration: none;
+}
+
+.user-name:hover {
+  text-decoration: underline;
+}
+
+.post-date {
+  font-size: 0.9em;
+  color: #777; /* 薄いグレー */
+  margin: 5px 0;
+}
+
+.tweet-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.tweet-actions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.action-link {
+  color: #2A496B; /* 青色 */
+  text-decoration: none;
+  margin-right: 15px;
+  transition: color 0.3s ease; /* アニメーション効果 */
+}
+
+.action-link:hover {
+  color: #2A496B; /* ホバー時の色 */
+  text-decoration: underline;
+}

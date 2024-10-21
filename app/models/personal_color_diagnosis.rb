@@ -1,0 +1,2 @@
+class PersonalColorDiagnosis < ApplicationRecord
+end

@@ -14,7 +14,7 @@
  *= require_self
  */
 
-/* グローバル設定 */
+
 body {
     font-family: 'Raleway', sans-serif;
     color: #333;
@@ -23,9 +23,10 @@ body {
 
 /* ヘッダー全体 */
 header {
-    background-color: #fff;
+    background-color: #f5f5f5;
     border-bottom: 2px solid #eee;
-    padding: 20px 0;
+    padding: 0;
+    margin: 0;
     font-weight: bold;
 }
 
@@ -35,13 +36,13 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 0 40px; /* 左右に余白を追加 */
-    background-color: #fff;
+    background-color: #f5f5f5;
 }
 
 .header-top h1 {
     font-family: 'Playfair Display', serif; /* エレガントなフォント */
-    color: #111;
-    font-size: 48px; /* サイズを大きくして存在感を強調 */
+    color: #444;
+    font-size: 42px; /* サイズを大きくして存在感を強調 */
     letter-spacing: 2px; /* 少し間隔を広げる */
 }
 
@@ -62,15 +63,16 @@ header {
 }
 
 .link a:hover {
-    color: #111;
-    border-bottom: 2px solid #111; /* ホバー時に下線を表示 */
+    color: #444;
+    border-bottom: 2px solid #444; /* ホバー時に下線を表示 */
 }
 
 /* ヘッダー下段 (ナビゲーション) */
 .header-bottom {
     background-color: #f7f7f7;
-    padding: 10px 0;
-    border-top: 1px solid #eee;
+    padding: 5px 0;
+    border-top: 2px solid #eee; /* ナビゲーションの上にライン */
+    border-bottom: 2px solid #eee; /* ナビゲーションの下にライン */
 }
 
 .header-bottom nav {
@@ -86,8 +88,8 @@ header {
 }
 
 .header-bottom nav ul li a {
-    color: #333;
-    font-size: 18px;
+    color: #444;
+    font-size: 16px;
     font-weight: 700;
     text-decoration: none;
     position: relative;
@@ -98,7 +100,7 @@ header {
     display: block;
     width: 0;
     height: 2px;
-    background: #333;
+    background: #6b6b6b;
     transition: width 0.3s;
     position: absolute;
     bottom: -4px;
@@ -106,9 +108,28 @@ header {
 }
 
 .header-bottom nav ul li a:hover::after {
+    color: #444;
     width: 100%;
 }
 
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f7f7f7; /* フッターの背景色をお好みで */
+    text-align: center;
+    padding: 10px 0;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1); /* 少し影を付けて立体感を演出 */
+  }
+
+
+  html, body {
+    height: 100%; /* ページ全体の高さを100%に設定 */
+    margin: 0; /* 余白をなくす */
+    padding: 0;
+}
+
+/* 各セクションに適切な高さを指定（必要に応じて調整） */
 /* モバイル対応 */
 @media (max-width: 768px) {
     .header-top {
@@ -121,3 +142,4 @@ header {
         padding-right: 0;
     }
 }
+

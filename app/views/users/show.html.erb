@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>マイページ</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="users_show.css">
 </head>
-<body>
-    <div class="container">
+<body class="mypage">
+    <div class="mypage_container">
         <!-- プロフィールセクション -->
         <div class="profile-bar">
             <%= image_tag @user.image_url, size: "80x80", class: "profile-image" if @user.image? %>
@@ -22,10 +22,106 @@
             </div>
         </div>
 
-        <!-- クローゼットセクション -->
-        <div class="section">
-            <h2>クローゼット</h2>
-            <%= link_to "クローゼットを見る", closets_path, class: "section-button" %>
+        <!-- 診断セクション (統一された構造) -->
+        <div class="diagnosis-section">
+            <div class="diagnosis-card">
+        <!-- ファッションジャンル診断結果 -->
+        <section class="fasion-diagnosis">
+        <h2>ファッションスタイル診断結果: <%= @fashion_profile.result %></h2>
+        <% if @fashion_profile %>
+            <h3>特徴</h3>
+            <p><%= @fashion_profile.description %></p>
+
+            <!-- 診断結果に応じた画像を表示 -->
+            <% case @fashion_profile.result %>
+            <% when "カジュアルスタイル" %>
+            <%= image_tag 'casual1.jpeg', alt: 'カジュアルスタイル画像1', class: 'fashion-image' %>
+            <%= image_tag 'casual2.jpeg', alt: 'カジュアルスタイル画像2', class: 'fashion-image' %>
+            <%= image_tag 'casual3.jpeg', alt: 'カジュアルスタイル画像3', class: 'fashion-image' %>
+            <% when "ストリートスタイル" %>
+            <%= image_tag 'street1.jpeg', alt: 'ストリートスタイル画像1', class: 'fashion-image' %>
+            <%= image_tag 'street2.jpeg', alt: 'ストリートスタイル画像2', class: 'fashion-image' %>
+            <%= image_tag 'street3.jpeg', alt: 'ストリートスタイル画像3', class: 'fashion-image' %>
+            <% when "韓国系ファッション" %>
+            <%= image_tag 'korean1.jpeg', alt: '韓国系ファッション画像1', class: 'fashion-image' %>
+            <%= image_tag 'korean2.jpeg', alt: '韓国系ファッション画像2', class: 'fashion-image' %>
+            <%= image_tag 'korean3.jpeg', alt: '韓国系ファッション画像3', class: 'fashion-image' %>
+            <% when "フォーマルスタイル" %>
+            <%= image_tag 'formal1.jpeg', alt: 'フォーマルスタイル画像1', class: 'fashion-image' %>
+            <%= image_tag 'formal2.jpeg', alt: 'フォーマルスタイル画像2', class: 'fashion-image' %>
+            <%= image_tag 'formal3.jpeg', alt: 'フォーマルスタイル画像3', class: 'fashion-image' %>
+            <% when "ガーリースタイル" %>
+            <%= image_tag 'girly1.jpeg', alt: 'ガーリースタイル画像1', class: 'fashion-image' %>
+            <%= image_tag 'girly2.jpeg', alt: 'ガーリースタイル画像2', class: 'fashion-image' %>
+            <%= image_tag 'girly3.jpeg', alt: 'ガーリースタイル画像3', class: 'fashion-image' %>
+            <% when "スポーツミックススタイル" %>
+            <%= image_tag 'sportsmix1.jpeg', alt: 'スポーツミックススタイル画像1', class: 'fashion-image' %>
+            <%= image_tag 'sportsmix2.jpeg', alt: 'スポーツミックススタイル画像2', class: 'fashion-image' %>
+            <%= image_tag 'sportsmix3.jpeg', alt: 'スポーツミックススタイル画像3', class: 'fashion-image' %>
+            <% when "ヴィンテージスタイル" %>
+            <%= image_tag 'vintage1.jpeg', alt: 'ヴィンテージスタイル画像1', class: 'fashion-image' %>
+            <%= image_tag 'vintage2.jpeg', alt: 'ヴィンテージスタイル画像2', class: 'fashion-image' %>
+            <%= image_tag 'vintage3.jpeg', alt: 'ヴィンテージスタイル画像3', class: 'fashion-image' %>
+            <% when "綺麗めスタイル" %>
+            <%= image_tag 'kireime1.jpeg', alt: '綺麗めスタイル画像1', class: 'fashion-image' %>
+            <%= image_tag 'kireime2.jpeg', alt: '綺麗めスタイル画像2', class: 'fashion-image' %>
+            <%= image_tag 'kireime3.jpeg', alt: '綺麗めスタイル画像3', class: 'fashion-image' %>
+            <% else %>
+            <p>該当するスタイルが見つかりませんでした。</p>
+            <% end %>
+        <% else %>
+            <p>まだファッションジャンル診断を行っていません。</p>
+            <%= link_to '診断する', new_fashion_profile_path %>
+        <% end %>
+        </section>
+        </div>
+
+        <div class="diagnosis-card">
+        <section class="body-diagnosis">
+            <h2>骨格診断結果: <%= @body_diagnosis.result %></h2>
+            <% if @body_diagnosis %>
+                <h3>特徴</h3>
+                <p><%= @body_info.is_a?(Hash) ? @body_info[:description] : '情報がありません' %></p>
+                <h3>似合う服装のアドバイス</h3>
+                <p><%= @body_info.is_a?(Hash) ? @body_info[:fashion_advice] : 'アドバイスがありません' %></p>
+            <% else %>
+                <p>まだ骨格診断を行っていません。</p>
+                <%= link_to '診断する', new_body_diagnosis_path %>
+            <% end %>
+                <% if @body_info && @body_info[:images] %>
+                    <% @body_info[:images].each do |image| %>
+                    <%= image_tag(image, width: '720px') %>
+                <% end %>
+        <% end %>
+        </section>
+        </div>
+
+        <div class="diagnosis-card">
+        <section class="color-diagnosis">
+            <h2>パーソナルカラー診断結果: <%= @color_diagnosis.result %></h2>
+            <% if @color_diagnosis %>
+                <h3>特徴</h3>
+                <p><%= @color_info[:description] %></p>
+                <h3>似合う服装のアドバイス</h3>
+                <p><%= @color_info[:fashion_advice] %></p>
+                <div class="diagnosis-images">
+                <% if @color_diagnosis.result == 'イエベ春' %>
+                    <%= image_tag 'spring.jpeg', alt: 'スプリングのカラーパレット', class: 'color-image' %>
+                <% elsif @color_diagnosis.result == 'ブルベ夏' %>
+                    <%= image_tag 'summer.jpeg', alt: 'サマーのカラーパレット', class: 'color-image' %>
+                <% elsif @color_diagnosis.result == 'イエベ秋' %>
+                    <%= image_tag 'autumn.jpeg', alt: 'オータムのカラーパレット', class: 'color-image' %>
+                <% elsif @color_diagnosis.result == 'ブルベ冬' %>
+                    <%= image_tag 'winter.jpeg', alt: 'ウィンターのカラーパレット', class: 'color-image' %>
+                <% else %>
+                    <p>パーソナルカラーの結果が見つかりませんでした。</p>
+                <% end %>
+            </div>
+            <% else %>
+                <p>パーソナルカラー診断結果がありません。</p>
+                <%= link_to '診断する', new_color_diagnosis_path %>
+            <% end %>
+        </section>
         </div>
 
         <!-- 通知・お知らせセクション -->
@@ -36,9 +132,10 @@
 
         <!-- フッターボタン -->
         <div class="link-list">
-            <%= link_to "Tweet一覧に戻る", tweets_path %>
-            <%= link_to "Closetへ", closets_path %>
+            <%= link_to "My Code一覧に戻る", tweets_path %>
+            <%= link_to "My Closetへ", closets_path %>
         </div>
+        <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
     </div>
 </body>
 </html>

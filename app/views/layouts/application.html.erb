@@ -27,7 +27,17 @@
         <nav>
           <ul>
             <li><%= link_to "クローゼット", closets_path %></li>
-            <li><%= link_to "コーデ登録",new_tweet_path %></li>
+            <li><%= link_to "コーデ一覧",tweets_path %></li>
+            <li><%= link_to "ファッション診断", fashion_profiles_path, class: "link" %></li>
+            <li><%= link_to "骨格診断", body_diagnoses_path, class: "link" %></li>
+            <li><%= link_to "パーソナルカラー診断", color_diagnoses_path, class: "link" %></li>
+            <li>
+                <% if user_signed_in? %>
+                  <%= link_to "My page", user_path(current_user.id) %>
+                <% else %>
+                  <%= link_to "ログイン", new_user_session_path %>
+                <% end %>
+            </li>
           </ul>
         </nav>
       </div>

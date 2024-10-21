@@ -1,0 +1,31 @@
+/* メインコンテンツ */
+.start {
+  text-align: center; /* テキストを中央揃え */
+  background-color: #ffffff; /* 白色の背景 */
+  border-radius: 10px; /* 丸みを持たせる */
+  padding: 40px; /* 内側の余白 */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 影をつけて立体感を出す */
+}
+
+/* タイトルスタイル */
+h1 {
+  font-family: 'Playfair Display', serif; /* エレガントなフォント */
+  font-size: 2.5em; /* 大きめのフォントサイズ */
+  margin-bottom: 20px; /* 下の余白 */
+  color: #2A496B; /* 青色 */
+}
+
+.link1 {
+  display: inline-block;
+  padding: 15px 30px; /* ボタンの内側の余白 */
+  font-size: 1.2em; /* フォントサイズ */
+  color: #ffffff; /* 白色の文字 */
+  background-color: #2A496B; /* 青色の背景 */
+  border-radius: 5px; /* 丸みを持たせる */
+  text-decoration: none; /* 下線を消す */
+  transition: background-color 0.3s; /* ホバー時のアニメーション */
+}
+
+.link1:hover {
+  background-color: #0056b3; /* ホバー時の色 */
+}

@@ -1,0 +1,144 @@
+/* まずは基本のリセットとグローバルスタイル */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #444;
+  background-color: #f9f9f9;
+}
+
+/*   First block   */
+#first-block {
+    background-image: url('top1.png');
+    background-size: cover;
+    background-position: center;
+    max-width: 1200px;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.title-container {
+    text-align: center;
+}
+
+.title-container h1 {
+    font-size: 80px;
+    font-family: serif;
+    color: #444;
+}
+
+.title-container h3 {
+    font-size: 20px;
+    font-family: serif;
+    color: #444;
+}
+
+/*   Second block   */
+#second-block {
+    background-image: url('hanger2.png');
+    background-size: cover;
+    background-position: center;
+    max-width: 1200px;
+    height: 800px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.about-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    margin: 20px auto;
+}
+
+.info-title {
+    font-size: 60px;
+    font-family: serif;
+    margin-bottom: 20px;
+    color: #444;
+    text-align: center;
+}
+
+.info-text {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #444;
+    width: 30%;
+}
+
+.font-small {
+    font-size: 15px;
+}
+
+/*   Third block   */
+#third-block {
+    background-color: #444;
+    text-align: center;
+    max-width: 800px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    margin: 0 auto;
+}
+
+.event-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.events-title {
+    font-size: 60px;
+    font-family: serif;
+    color: #fff;
+}
+
+.event {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 100%;
+    color: #fff;
+}
+
+.event-name {
+    font-size: 20px;
+    padding: 10px;
+    width: 40%;
+}
+
+span {
+    font-size: 40px;
+    font-family: serif;
+}
+
+.event-image {
+    width: 40%;
+    height: 330px;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    #first-block, #second-block, #third-block {
+        height: auto;
+        padding: 20px;
+    }
+
+    .info-text, .event-name {
+        font-size: 16px;
+    }
+
+    .event-image {
+        height: auto;
+    }
+}

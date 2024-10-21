@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>ファッション診断 - 結果</title>
+  <link rel="stylesheet" href="styles/fashion_profiles_show.scss">
+  <%= javascript_pack_tag 'application' %>
+</head>
+
+<body>
+
+  <main>
+  </main>
+<div class="container">
+  <div class="intoro">
+    <h5>診断結果</h5>
+    <p>あなたにおすすめのファッションスタイルは…</p>
+  </div>
+  <div class="fashion_profile-container">
+    <div class="fashion_profile">
+      <% case @fashion_profile.result %>
+      <% when "カジュアルスタイル" %>
+        <h6>カジュアルスタイル</h6>
+        <p>シンプルで快適な服装が好まれ、リラックスした日常のコーディネートを楽しむ。</p>
+        <p>提案するアイテム: Tシャツ、ジーンズ、スニーカー、パーカーなど。</p>
+        <p>アクセサリー: 最小限で、機能的なアイテムが中心。</p>
+
+        <div class="casual-images">
+          <%= image_tag('casual1.jpeg', alt: 'カジュアルスタイル画像1', class: 'casual-image') %>
+          <%= image_tag('casual2.jpeg', alt: 'カジュアルスタイル画像2', class: 'casual-image') %>
+          <%= image_tag('casual3.jpeg', alt: 'カジュアルスタイル画像3', class: 'casual-image') %>
+        </div>
+
+      <% when "ストリートスタイル" %>
+        <h6>ストリートスタイル</h6>
+        <p>トレンドを意識したファッションで、個性的で目立つアイテムを取り入れるのが好き。</p>
+        <p>提案するアイテム: グラフィックTシャツ、デニムジャケット、バギーパンツ、スニーカーなど。</p>
+        <p>アクセサリー: 大胆なデザインのアイテムやトレンド性の高いアクセサリー。</p>
+
+        <div class="street-images">
+          <%= image_tag('street1.jpeg', alt: 'ストリートスタイル画像1', class: 'street-image') %>
+          <%= image_tag('street2.jpeg', alt: 'ストリートスタイル画像2', class: 'street-image') %>
+          <%= image_tag('street3.jpeg', alt: 'ストリートスタイル画像3', class: 'street-image') %>
+
+      <% when "韓国系ファッション" %>
+        <h6>韓国系ファッション</h6>
+        <p>洗練されたデザインとミニマルなスタイルを好む。シンプルでありながらもトレンドを取り入れたコーディネート。</p>
+        <p>提案するアイテム: シンプルなトップス、スカート、オーバーサイズのジャケット、スニーカー。</p>
+        <p>アクセサリー: 控えめでエレガントなデザインのアクセサリー。</p>
+
+        <div class="korean-images">
+          <%= image_tag('korean1.jpeg', alt: '韓国スタイル画像1', class: 'korean-image') %>
+          <%= image_tag('korean2.jpeg', alt: '韓国スタイル画像2', class: 'korean-image') %>
+          <%= image_tag('korean3.jpeg', alt: '韓国スタイル画像3', class: 'korean-image') %>
+          
+      <% when "フォーマルスタイル" %>
+        <h6>フォーマルスタイル</h6>
+        <p>クラシックでエレガントな服装を好み、場に応じたフォーマルなコーディネートを重視。</p>
+        <p>提案するアイテム: スーツ、ドレスシャツ、タイ、ドレッシーな靴など。</p>
+        <p>アクセサリー: 高級感のあるシンプルなアクセサリー（例えば、時計やカフスボタン）。</p>
+
+        <div class="formal-images">
+          <%= image_tag('formal1.jpeg', alt: 'フォーマルスタイル画像1', class: 'formal-image') %>
+          <%= image_tag('formal2.jpeg', alt: 'フォーマルスタイル画像2', class: 'formal-image') %>
+          <%= image_tag('formal3.jpeg', alt: 'フォーマルスタイル画像3', class: 'formal-image') %>
+        
+      <% when "ガーリースタイル" %>
+        <h6>ガーリースタイル</h6>
+        <p>フェミニンで可愛らしいデザインを好む。女性らしさを引き立てるコーディネート。</p>
+        <p>提案するアイテム: フリルやレースのトップス、スカート、可愛いシューズ。</p>
+        <p>アクセサリー: デリケートで可愛らしいアイテム。</p>
+
+        <div class="girly-images">
+          <%= image_tag('girly1.jpeg', alt: 'フォーマルスタイル画像1', class: 'girly-image') %>
+          <%= image_tag('girly2.jpeg', alt: 'フォーマルスタイル画像2', class: 'girly-image') %>
+          <%= image_tag('girly3.jpeg', alt: 'フォーマルスタイル画像3', class: 'girly-image') %>
+
+      <% when "スポーツミックススタイル" %>
+        <h6>スポーツミックススタイル</h6>
+        <p>スポーツウェアとカジュアルアイテムを組み合わせたスタイル。機能性とファッション性を兼ね備えたコーディネート。</p>
+        <p>提案するアイテム: スポーツウェア、レギンス、スニーカー。</p>
+        <p>アクセサリー: 機能的かつスタイリッシュなアイテム。</p>
+
+        <div class="sportsmix-images">
+          <%= image_tag('sportsmix1.jpeg', alt: 'スポーツミックススタイル画像1', class: 'sportsmix-image') %>
+          <%= image_tag('sportsmix2.jpeg', alt: 'スポーツミックススタイル画像2', class: 'sportsmix-image') %>
+          <%= image_tag('sportsmix3.jpeg', alt: 'スポーツミックススタイル画像3', class: 'sportsmix-image') %>
+
+      <% when "ヴィンテージスタイル" %>
+        <h6>ヴィンテージスタイル</h6>
+        <p>レトロで独特なデザインを好む。過去のファッションからインスパイアされたスタイル。</p>
+        <p>提案するアイテム: 古着やレトロなデザインのアイテム。</p>
+        <p>アクセサリー: クラシックでユニークなデザインのアイテム。</p>
+
+        <div class="vintage-images">
+          <%= image_tag('vintage1.jpeg', alt: 'ヴィンテージ画像1', class: 'vintage-image') %>
+          <%= image_tag('vintage2.jpeg', alt: 'ヴィンテージ画像2', class: 'vintage-image') %>
+          <%= image_tag('vintage3.jpeg', alt: 'ヴィンテージ画像3', class: 'vintage-image') %>
+
+      <% when "綺麗めスタイル" %>
+        <h6>綺麗めスタイル</h6>
+        <p>洗練されていてエレガントなスタイル。シンプルでありながらも高級感のあるコーディネート。</p>
+        <p>提案するアイテム: クリーンなラインのアイテム、上品な素材。</p>
+        <p>アクセサリー: シンプルで洗練されたデザインのアイテム。</p>
+
+        <div class="kireime-images">
+          <%= image_tag('kireime1.jpeg', alt: '綺麗目スタイル画像1', class: 'kireime-image') %>
+          <%= image_tag('kireime2.jpeg', alt: '綺麗目スタイル画像1', class: 'kireime-image') %>
+          <%= image_tag('kireime3.jpeg', alt: '綺麗目スタイル画像1', class: 'kireime-image') %>
+
+      <% else %>
+        <h6>該当するスタイルが見つかりませんでした。</h6>
+        <p>もう一度診断をお試しください。</p>
+      <% end %>
+    </div>
+  </div>
+</div>
+</body>
+</html>

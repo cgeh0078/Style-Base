@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>アプリケーション</title>
+  
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <% if current_page?(color_diagnoses_path) %>
+    <%= stylesheet_link_tag 'color_diagnoses_new', media: 'all' %>
+
+  <% end %>
+
+  <%= csrf_meta_tags %>
+<body class="color-diagnosis-page">
+    <header class = "diagnosis">
+    <h1 class= "diagnosis">パーソナルカラー診断</h1>
+  </header>
+
+  <main>
+        <%= form_with model: @color_diagnosis, url: color_diagnoses_path, method: :post do |form| %>
+        <fieldset>
+        <legend>1. あなたの肌の色はどのように感じますか？</legend>
+        <%= form.radio_button :skin_tone, 'A' %> <%= form.label :skin_tone_A, '明るい' %><br>
+        <%= form.radio_button :skin_tone, 'B' %> <%= form.label :skin_tone_B, '普通' %><br>
+        <%= form.radio_button :skin_tone, 'C' %> <%= form.label :skin_tone_C, '暗い' %><br>
+      </fieldset>
+
+      <fieldset>
+        <legend>2. あなたの目の色はどのように感じますか？</legend>
+        <%= form.radio_button :eye_color, 'A' %> <%= form.label :eye_color_A, '明るい' %><br>
+        <%= form.radio_button :eye_color, 'B' %> <%= form.label :eye_color_B, '普通' %><br>
+        <%= form.radio_button :eye_color, 'C' %> <%= form.label :eye_color_C, '暗い' %><br>
+      </fieldset>
+
+      <fieldset>
+        <legend>3. あなたの髪の色はどのように感じますか？</legend>
+        <%= form.radio_button :hair_color, 'A' %> <%= form.label :hair_color_A, '明るい' %><br>
+        <%= form.radio_button :hair_color, 'B' %> <%= form.label :hair_color_B, '普通' %><br>
+        <%= form.radio_button :hair_color, 'C' %> <%= form.label :hair_color_C, '暗い' %><br>
+      </fieldset>
+
+      <fieldset>
+        <legend>4. あなたの日焼け反応はどのように感じますか？</legend>
+        <%= form.radio_button :sunburn_reaction, 'A' %> <%= form.label :sunburn_reaction_A, '赤くなる' %><br>
+        <%= form.radio_button :sunburn_reaction, 'B' %> <%= form.label :sunburn_reaction_B, 'すぐに焼けない' %><br>
+        <%= form.radio_button :sunburn_reaction, 'C' %> <%= form.label :sunburn_reaction_C, 'すぐに焼ける' %><br>
+      </fieldset>
+
+      <fieldset>
+        <legend>5. あなたの色の好みはどのように感じますか？</legend>
+        <%= form.radio_button :color_preference, 'A' %> <%= form.label :color_preference_A, '暖かい色' %><br>
+        <%= form.radio_button :color_preference, 'B' %> <%= form.label :color_preference_B, '冷たい色' %><br>
+        <%= form.radio_button :color_preference, 'C' %> <%= form.label :color_preference_C, '中立的' %><br>
+      </fieldset>
+
+      <fieldset>
+        <legend>6. あなたのアクセサリーの色はどのように感じますか？</legend>
+        <%= form.radio_button :accessory_color, 'A' %> <%= form.label :accessory_color_A, 'ゴールド' %><br>
+        <%= form.radio_button :accessory_color, 'B' %> <%= form.label :accessory_color_B, 'シルバー' %><br>
+        <%= form.radio_button :accessory_color, 'C' %> <%= form.label :accessory_color_C, '中立的' %><br>
+      </fieldset>
+
+      <fieldset>
+        <legend>7. あなたの服の色はどのように感じますか？</legend>
+        <%= form.radio_button :clothing_color, 'A' %> <%= form.label :clothing_color_A, '暖かい色' %><br>
+        <%= form.radio_button :clothing_color, 'B' %> <%= form.label :clothing_color_B, '冷たい色' %><br>
+        <%= form.radio_button :clothing_color, 'C' %> <%= form.label :clothing_color_C, '中立的' %><br>
+      </fieldset>
+
+      <%= form.submit "診断する" %>
+      <% if flash[:alert] %>
+  <div class="alert">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+    <% end %>
+  </main>
+</body>
+</html>

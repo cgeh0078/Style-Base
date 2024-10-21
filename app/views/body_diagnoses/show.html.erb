@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>診断結果</title>
+  <link rel="stylesheet" href="styles/body_diagnoses_show.scss">
+
+</head>
+<body class="body-diagnosis-page">
+  <main class="container">
+    <p class="result-text">あなたの体型は、<span class="result-type"><%= @result %></span>です。</p>
+
+  <div class="details">
+      <h2>体型の特徴</h2>
+      <p class="details-text">
+        <% if @result == 'ウェーブ' %>
+          柔らかいボディラインで、全体的に華奢な印象。体にフィットする服が似合います。
+        <% elsif @result == 'ストレート' %>
+          メリハリのあるボディラインが特徴。シンプルで直線的なデザインの服が似合います。
+        <% elsif @result == 'ナチュラル' %>
+          骨格がしっかりしていて、カジュアルでラフなスタイルが得意です。
+        <% elsif @result == 'ウェーブ×ナチュラル' %>
+          ウェーブの柔らかさとナチュラルのラフさを持ち合わせています。適度に体にフィットしつつ、自然な素材が似合います。
+        <% elsif @result == 'ストレート×ウェーブ' %>
+          ストレートのメリハリとウェーブの柔らかさを併せ持つスタイル。適度に体を強調する服が合います。
+        <% elsif @result == 'ストレート×ナチュラル' %>
+          シンプルさとカジュアルさが共存するスタイル。無駄のないデザインが魅力です。
+        <% elsif @result == 'ナチュラル×ウェーブ' %>
+          自然な印象と女性らしい柔らかさが特徴。カジュアルな中に少しのフェミニンさを取り入れたスタイルが似合います。
+        <% elsif @result == 'ナチュラル×ストレート' %>
+          シンプルで骨格を強調するデザインが似合います。ラフなスタイルとクリーンなラインの服がベストです。
+        <% elsif @result == 'ウェーブ×ストレート' %>
+          フェミニンな柔らかさとストレートの直線的なラインが特徴。体にフィットする上品なスタイルが似合います。
+        <% else %>
+          3タイプミックスの特徴を併せ持ちます。多様なスタイルが楽しめます。
+        <% end %>
+      </p>
+    </div>
+
+  <div class="fashion-advice">
+    <h2>おすすめの服のスタイル</h2>
+    <p class="advice-text">
+      <% if @result == 'ウェーブ' %>
+        柔らかい素材や、体にフィットするデザインが似合います。ウエストマークが効いた服を選びましょう。
+      <% elsif @result == 'ストレート' %>
+        シンプルで直線的なデザインが得意です。ハリのある素材や、余計な装飾のない服が似合います。
+      <% elsif @result == 'ナチュラル' %>
+        ラフでリラックスしたスタイルが似合います。天然素材やゆったりとしたシルエットがベストです。
+      <% elsif @result == 'ウェーブ×ナチュラル' %>
+        自然な素材感と、体に少しフィットするシルエットの服が良いです。カジュアルでありながら、フェミニンさも大切にしましょう。
+      <% elsif @result == 'ストレート×ウェーブ' %>
+        体にフィットするデザインとシンプルさを併せ持った服が似合います。ウエストを強調するスタイルがおすすめです。
+      <% elsif @result == 'ストレート×ナチュラル' %>
+        シンプルでラフなスタイルが似合います。直線的で無駄のないデザインが魅力です。
+      <% elsif @result == 'ナチュラル×ウェーブ' %>
+        フェミニンな要素を取り入れたカジュアルスタイルがおすすめです。ゆったりしつつも女性らしいディテールが重要です。
+      <% elsif @result == 'ナチュラル×ストレート' %>
+        シンプルかつラフで、骨格を強調するスタイルが合います。クリーンで無駄のないデザインを選びましょう。
+      <% elsif @result == 'ウェーブ×ストレート' %>
+        上品でありながらも、女性らしいラインを取り入れたデザインが似合います。適度にフィットする服を選びましょう。
+      <% else %>
+        あなたのスタイルは多様な要素を含んでおり、色々なデザインを楽しむことができます。自分らしいスタイルを見つけてください。
+      <% end %>
+    </p>
+  </div>
+
+<h3></h3>
+<!-- 画像を中央に配置するためのコンテナ -->
+    <div class="image-container">
+  <!-- 診断結果に応じた画像を表示 -->
+    <% case @result %>
+      <% when 'ウェーブ' %>
+        <%= image_tag "wave1.png", width: "600", height: "auto", alt: "ウェーブ体型の画像" %>
+        <%= image_tag "wave2.png", width: "600", height: "auto",  alt: "ウェーブ体型の画像" %>
+        <%= image_tag "wave3.png", width: "600", height: "auto",  alt: "ウェーブ体型の画像" %>
+      <% when 'ストレート' %>
+        <%= image_tag "straight1.png", width: "600", height: "auto",  alt: "ストレート体型の画像" %>
+        <%= image_tag "straight2.png", width: "600", height: "auto",  alt: "ストレート体型の画像" %>
+        <%= image_tag "straight3.png", width: "600", height: "auto",  alt: "ストレート体型の画像" %>
+
+      <% when 'ナチュラル' %>
+        <%= image_tag "natural1.png", width: "600", height: "auto",  alt: "ナチュラル体型の画像" %>
+        <%= image_tag "natural2.png", width: "600", height: "auto",  alt: "ナチュラル体型の画像" %>
+        <%= image_tag "natural3.png", width: "600", height: "auto",  alt: "ナチュラル体型の画像" %>
+
+      <% when 'ウェーブ×ストレート' %>
+        <%= image_tag "wave1.png", width: "600", height: "auto",  alt: "ウェーブ体型の画像" %>
+        <%= image_tag "straight1.png", width: "600", height: "auto",  alt: "ストレート体型の画像" %>
+        <%= image_tag "wave2.png", width: "600", height: "auto",  alt: "ウェーブ体型の画像" %>
+        <%= image_tag "straight2.png",width: "600", height: "auto",  alt: "ストレート体型の画像" %>
+        <%= image_tag "wave3.png", width: "600", height: "auto",  alt: "ウェーブ体型の画像" %>
+        <%= image_tag "straight3.png", width: "600", height: "auto",  alt: "ストレート体型の画像" %>
+
+      <% when 'ウェーブ×ナチュラル' %>
+        <%= image_tag "wave1.png", width: "600", height: "auto", alt: "ウェーブ体型の画像" %>
+        <%= image_tag "natural1.png", width: "600", height: "auto", alt: "ナチュラル体型の画像" %>
+        <%= image_tag "wave2.png", width: "600", height: "auto", alt: "ウェーブ体型の画像" %>
+        <%= image_tag "natural2.png", width: "600", height: "auto", alt: "ナチュラル体型の画像" %>
+        <%= image_tag "wave3.png", width: "600", height: "auto", alt: "ウェーブ体型の画像" %>
+        <%= image_tag "natural3.png", width: "600", height: "auto", alt: "ナチュラル体型の画像" %>
+
+      <% when 'ストレート×ナチュラル' %>
+        <%= image_tag "straight1.png", width: "600", height: "auto", alt: "ストレート体型の画像" %>
+        <%= image_tag "natural1.png", width: "600", height: "auto", alt: "ナチュラル体型の画像" %>
+        <%= image_tag "straight2.png", width: "600", height: "auto", alt: "ストレート体型の画像" %>
+        <%= image_tag "natural2.png", width: "600", height: "auto", alt: "ナチュラル体型の画像" %>
+        <%= image_tag "straight3.png", width: "600", height: "auto", alt: "ストレート体型の画像" %>
+        <%= image_tag "natural3.png", width: "600", height: "auto", alt: "ナチュラル体型の画像" %>
+
+      <% when 'ストレート×ウェーブ' %>
+        <%= image_tag "straight1.png", width: "600", height: "auto", alt: "ストレート体型の画像" %>
+        <%= image_tag "wave1.png", width: "600", height: "auto", alt: "ウェーブ体型の画像" %>
+        <%= image_tag "straight2.png", width: "600", height: "auto", alt: "ストレート体型の画像" %>
+        <%= image_tag "wave2.png", width: "600", height: "auto", alt: "ウェーブ体型の画像" %>
+        <%= image_tag "straight3.png", width: "600", height: "auto", alt: "ストレート体型の画像" %>
+        <%= image_tag "wave3.png", width: "600", height: "auto", alt: "ウェーブ体型の画像" %>
+
+      <% when 'ナチュラル×ウェーブ' %>
+        <%= image_tag "natural1.png", width: "600", height: "auto", alt: "ナチュラル体型の画像" %>
+        <%= image_tag "wave1.png", width: "600", height: "auto", alt: "ウェーブ体型の画像" %>
+        <%= image_tag "natural2.png", width: "600", height: "auto", alt: "ナチュラル体型の画像" %>
+        <%= image_tag "wave2.png", width: "600", height: "auto", alt: "ウェーブ体型の画像" %>
+        <%= image_tag "natural3.png", width: "600", height: "auto", alt: "ナチュラル体型の画像" %>
+        <%= image_tag "wave3.png", width: "600", height: "auto", alt: "ウェーブ体型の画像" %>
+
+      <% when '3タイプミックス' %>
+        <%= image_tag "wave1.png", width: "600", height: "auto", alt: "ウェーブ体型の画像" %>
+        <%= image_tag "straight1.png", width: "600", height: "auto", alt: "ストレート体型の画像" %>
+        <%= image_tag "natural1.png", width: "600", height: "auto", alt: "ナチュラル体型の画像" %>
+      <% else %>
+        <p>画像が見つかりませんでした。</p>
+    <% end %>
+    </div>
+
+    <%= link_to '診断を再試行する', new_body_diagnosis_path, class: "link" %>
+  </main>
+</body>
+</html>

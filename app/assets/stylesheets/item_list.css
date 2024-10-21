@@ -1,4 +1,82 @@
-.closets-container {
-    display: flex;
-    flex-wrap: wrap;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+.MyCloset h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.closet-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 20px;
+  max-height: 100vh; /* コンテナの高さを画面全体に合わせる */
+  overflow-y: scroll; /* 縦スクロールを許可 */
+}
+
+.closet:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.closet p {
+  margin: 10px 0;
+  color: #555;
+}
+
+button, .button-link {
+  background-color: #f5f5f5;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: block; /* リンクをブロック表示 */
+  text-align: center; /* 中央揃え */
+  margin: 10px 0; /* 上下に余白 */
+}
+
+button:hover, .button-link:hover {
+  background-color: #e0e0e0;
+  color: #000;
+}
+
+.closet-container {
+  display: flex; /* フレックスボックスを使用 */
+  flex-wrap: wrap; /* 横に並ぶアイテムを折り返し */
+  justify-content: flex-start; /* 左詰めに設定 */
+  margin: -10px; /* 余白を相殺するためのマイナスマージン */
+}
+
+.closet-item {
+  width: calc(20% - 20px); /* 5枚並べるための幅 */
+  margin: 10px; /* 各アイテムに均等な余白を設定 */
+  box-sizing: border-box; /* パディングとボーダーを含めて計算 */
+}
+
+.closet-item img {
+  width: 100%; /* 画像の幅を親要素に合わせる */
+  height: auto; /* 高さを自動で調整 */
+  border-radius: 4px; /* 角を丸める */
+}
